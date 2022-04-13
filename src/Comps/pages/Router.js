@@ -1,9 +1,10 @@
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import { Link, Route, Routes} from "react-router-dom";
 import Home from "./Home";
 import Profile from "./Profile";
 import Chats from "./Chats";
 import {AUTHOR} from "../../Consts/consts";
 import {useState} from "react";
+
 
 const initialChats = {
     id1: {
@@ -25,17 +26,16 @@ const Router = () => {
             }})
     }
 
-    return (<BrowserRouter>
-
-        <ul>
+    return (<>
+        <ul className={'menu'}>
             <li>
-                <Link to="/">Home</Link>
+                <Link to="/">Главная</Link>
             </li>
             <li>
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile">Профиль</Link>
             </li>
             <li>
-                <Link to="/chats">Chats</Link>
+                <Link to="/chats">Чаты</Link>
             </li>
         </ul>
         <Routes>
@@ -44,6 +44,6 @@ const Router = () => {
             <Route path="/chats/:chatId" element={<Chats chats={chats} addMessage={addMessage} />} />
             <Route path="*" element={<Chats chats={chats}/>} />
         </Routes>
-    </BrowserRouter>)
+    </>)
 };
 export default Router;

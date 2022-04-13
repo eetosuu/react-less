@@ -3,23 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {createTheme, ThemeProvider} from "@mui/material";
-import {orange} from "@mui/material/colors";
+import {BrowserRouter} from "react-router-dom";
+import store from "./store";
+import {Provider} from "react-redux";
 
 const theme = createTheme({
     palette: {
         primary: {
-            main: '#ee8853',
-            list: '#e1bd5a'
+            light:'#ffffff',
+            main:'#e9ecf1',
+            dark:'#b8b8bb',
         },
     },
 });
 
 ReactDOM.render(
   <React.StrictMode>
+      <Provider store={store}>
       <ThemeProvider theme={theme}>
-          <App />
+          <BrowserRouter>
+              <App />
+          </BrowserRouter>
       </ThemeProvider>
-
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

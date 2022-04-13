@@ -3,7 +3,7 @@ import Fab from "@mui/material/Fab";
 import SendIcon from "@mui/icons-material/Send";
 import {useEffect, useRef, useState} from "react";
 import {AUTHOR} from "../Consts/consts";
-import {Grid, List} from "@mui/material";
+import {Box, Grid, IconButton, List} from "@mui/material";
 import ChatList from "./ChatList";
 import {useParams} from "react-router-dom";
 
@@ -43,13 +43,11 @@ const ControlPanel = ({ addMessage }) => {
     // }, [messageList]);
 
 
-  return <div>
-        <div className={""}>
-      <TextField inputRef={inputRef}  autoFocus label="Введите сообщение" variant="outlined" type="text" onKeyPress={handleKeyPress} onChange={getValueInput} value={inputText}/>
-      <Fab color="warning" aria-label="add" onClick={sendMsg}>
-          <SendIcon color="action"/>
-      </Fab>
-            </div>
-  </div>
+  return <Box sx={{maxWidth: '95%', display: "flex", margin: '0 auto'}}>
+      <TextField color="primary" fullWidth inputRef={inputRef}  autoFocus label="Введите сообщение" variant="outlined" type="text" onKeyPress={handleKeyPress} onChange={getValueInput} value={inputText}/>
+      <IconButton aria-label="delete" size="large">
+          <SendIcon fontSize="inherit" onClick={sendMsg} />
+      </IconButton>
+  </Box>
 }
 export default ControlPanel;
