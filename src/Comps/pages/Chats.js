@@ -4,7 +4,7 @@ import ControlPanel from "../ControlPanel";
 import {Box, Container, Divider, Grid} from "@mui/material";
 
 
-const Chats = ({chats, addMessage}) => {
+const Chats = () => {
 
     return (
         <Container maxWidth="xl">
@@ -15,16 +15,16 @@ const Chats = ({chats, addMessage}) => {
                       alignItems="center"
                       spacing={0}>
                     <Grid item xs={4}>
-                        <ChatList chats={chats}/>
+                        <ChatList/>
                     </Grid>
                     <Grid item xs={8}>
                         <Grid container
                               direction="column">
                             <Grid item xs={4}>
-                                <MessageList chats={chats}/>
+                                <MessageList />
                             </Grid>
                             <Grid item xs={4}>
-                                <ControlPanel addMessage={addMessage}/>
+                                <ControlPanel />
                             </Grid>
 
                         </Grid>

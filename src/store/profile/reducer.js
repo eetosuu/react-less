@@ -1,7 +1,7 @@
-import {TOGGLE_LIKE, TOGGLE_NAME} from "./actions";
+import {TOGGLE_LIKE, TOGGLE_NAME, UPDATE_NAME} from "./actions";
 
 const initialState = {
-    showName: false,
+    showName: true,
     name: 'Nikita'
 }
 
@@ -21,6 +21,12 @@ const profileReducer = (state = initialState, action ) => {
                 showLike: !state.showLike,
                 data: action.payload
             };
+        case UPDATE_NAME:
+            return {
+                ...state,
+                name: action.payload
+            }
+
     }
 }
 
