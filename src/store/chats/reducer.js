@@ -1,5 +1,4 @@
 import {ADD_CHAT, DELETE_CHAT} from "./action";
-import {AUTHOR} from "../../Consts/consts";
 
 const initialState = {
     chatList: []

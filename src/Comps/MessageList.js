@@ -5,10 +5,12 @@ import FaceIcon from "@mui/icons-material/Face";
 import {useParams} from "react-router-dom";
 import {AUTHOR} from "../Consts/consts";
 import {useSelector} from "react-redux";
+import {allMessagesSelector} from "../store/messages/selector";
+import {showNameSelector} from "../store/profile/selector";
 
 const MessageList = () => {
-    const allMessages = useSelector((state) => state.messages.messagesList);
-    const { name } = useSelector((state) => state.profile);
+    const allMessages = useSelector(allMessagesSelector );
+    const { name } = useSelector(showNameSelector);
     let { chatId } = useParams();
 
 

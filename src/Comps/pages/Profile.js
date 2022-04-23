@@ -1,16 +1,17 @@
-import store from "../../store";
+
 import {useCallback, useState} from "react";
 import {changeLike, changeVisible, updName} from "../../store/profile/actions";
 import {useDispatch, useSelector} from "react-redux";
 import {Button, Checkbox} from "@mui/material";
 import {Favorite, FavoriteBorder} from "@mui/icons-material";
 import TextField from "@mui/material/TextField";
+import {showLikeSelector, showNameSelector} from "../../store/profile/selector";
 
 const Profile = () => {
 
-    const {showName, name} = useSelector((state) => state.profile);
+    const {showName, name} = useSelector(showNameSelector);
     const dispatch = useDispatch();
-    const {showLike, like} = useSelector((state) => state);
+    const {showLike, like} = useSelector(showLikeSelector);
 
     const setShowName = useCallback(() => {
         dispatch(changeVisible);

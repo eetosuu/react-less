@@ -12,14 +12,14 @@ import {
 } from "@mui/material";
 import ImageIcon from '@mui/icons-material/Image';
 import DeleteIcon from '@mui/icons-material/Delete';
-import FolderIcon from '@mui/icons-material/Folder';
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
 import {addChat, delChat} from "../store/chats/action";
+import {getChatsList} from "../store/chats/selector";
 
 const ChatList = () => {
-    const chats = useSelector(state => state.chats.chatList);
+    const chats = useSelector(getChatsList);
     const [visible, setVisible] = useState(false);
     const dispatch = useDispatch();
     const handleClose = () => {
@@ -38,6 +38,7 @@ const ChatList = () => {
             dispatch(addChat(chatName));
         setChatName('');
         handleClose();
+
     }
     const handleDel = (chat) => {
         dispatch(delChat(chat));
@@ -46,10 +47,11 @@ const ChatList = () => {
 
 
 
+
     return <Box sx={{ height: "85vh", borderRight: '1px solid white', paddingTop: '12px',}}>
         <List className={'chat'}>
             {chats?.length > 0 ? (chats.map((chat) => (
-                <Link to={`/chats/${chat.id}`} key={chat.id}>
+                <Link  to={`/chats/${chat.id}`} key={chat.id}>
                     <ListItem className={'chat-item'}
                               secondaryAction={
                                   <IconButton onClick={() => handleDel(chat.id)} edge="end" aria-label="delete">
