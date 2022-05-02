@@ -1,22 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.scss';
+import Router from "./Comps/pages/Router";
+import React from "react"
+import {AuthProvider} from "./hooks/AuthProvider";
+
+function App(props) {
   return (
-    <div className="App">
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <AuthProvider>
+              <Router />
+          </AuthProvider>
+
       </header>
     </div>
   );
