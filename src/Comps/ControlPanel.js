@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addMessageWithThink} from "../store/messages/action";
 import {allMessagesSelector} from "../store/messages/selector";
 import {getNameProfile} from "../store/profile/selector";
+import {addMsgWithFB} from "../middlewares/middleware";
 
 const ControlPanel = () => {
     let { chatId } = useParams();
@@ -28,7 +29,7 @@ const ControlPanel = () => {
     const sendMsg = () => {
         if (inputText !== '') {
             const newMsg = {text: inputText, author: authorName };
-           dispatch(addMessageWithThink(chatId, newMsg));
+           dispatch(addMsgWithFB(chatId, newMsg));
             setInputText( "");
             inputRef.current?.focus();
         }

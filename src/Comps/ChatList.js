@@ -12,15 +12,17 @@ import {
 } from "@mui/material";
 import ImageIcon from '@mui/icons-material/Image';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {addChat, delChat} from "../store/chats/action";
 import {getChatsList} from "../store/chats/selector";
+import {addChatWithFB, deleteChatWithFB, initTrackerWithFB} from "../middlewares/middleware";
 
 const ChatList = () => {
     const chats = useSelector(getChatsList);
     const [visible, setVisible] = useState(false);
+    const {chatId} = useParams();
     const dispatch = useDispatch();
     const handleClose = () => {
         setVisible(false);
@@ -35,15 +37,18 @@ const ChatList = () => {
     };
     const handleSave = () => {
         if (chatName.length > 0)
-            dispatch(addChat(chatName));
+            dispatch(addChatWithFB(chatName));
         setChatName('');
         handleClose();
 
     }
     const handleDel = (chat) => {
-        dispatch(delChat(chat));
+        dispatch(deleteChatWithFB(chat));
     }
 
+    useEffect(() => {
+        dispatch(initTrackerWithFB());
+    }, [chatId] )
 
 
 

@@ -1,4 +1,4 @@
-import {ADD_CHAT, DELETE_CHAT} from "./action";
+import {ADD_CHAT, CHATS_UPDATE, DELETE_CHAT} from "./action";
 
 const initialState = {
     chatList: []
@@ -19,7 +19,12 @@ const chatsReducer = (state = initialState, action) => {
         case DELETE_CHAT: {
             const newChatList = state.chatList.filter(chat => chat.id !== action.payload);
             return {...state, chatList: newChatList};
-        }
+        };
+        case CHATS_UPDATE:
+            return {
+                ...state,
+                chatList: action.chats
+            }
         default:
             return state;
 
