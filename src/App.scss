@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.color-main {
+  color:#597ba0;
+}
+.link {
+  padding: 7px;
+  text-decoration: none;
+  color: #597ba0;
+  transition: .5s;
+  border: 1px solid #597ba0;
+  border-radius: 15px;
+  &:hover {
+    color: #486a8d;
+    border: 1px solid #486a8d;
+  }
+}
+.menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  a {
+    text-decoration: none;
+    color: #597ba0;
+    transition: .5s;
+    &:hover{
+      color: #486a8d;
+    }
+  }
+}
+.msg {
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: flex-start;
+    gap: 10px;
+    word-break: break-all;
+  }
+  &-item {
+    background-color: white;
+    border: 1px solid #b8b8bb;
+    border-radius: 20px;
+  }
+}
+.chat {
+  &-item {
+    transition: 0.4s;
+  }
+  &-item:hover {
+    background-color: #486a8d;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
