@@ -1,6 +1,6 @@
 import {TOGGLE_LIKE, TOGGLE_NAME, UPDATE_NAME} from "./actions";
 
-const initialState = {
+export const initialState = {
     showName: true,
     name: 'Nikita'
 }
